@@ -17,4 +17,23 @@ export class ProjectService {
     testService(){
         return "Testing project service";
     }
+
+    save(project: Project) {
+        let params = JSON.stringify(project);
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+
+        return this._http.post(this.url + 'save', params, {headers: headers});
+    }
+
+    getProjects(): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'list', {headers: headers});
+    }
+
+    getProject(id: number): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+
+        return this._http.get(this.url + id, {headers: headers});
+    }
 }
