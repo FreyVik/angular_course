@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="project">
   <h2>{{ title }}</h2>
 
   <div class="message success" *ngIf="status && proccessed">
@@ -75,6 +75,9 @@
 
     <p>
       <label for="image">Imagen del proyecto</label>
+      <span *ngIf="project.image">
+        <img src="{{ url + 'image/' + project.image }}" width="100px" />
+      </span>
       <input
         type="file"
         name="image"

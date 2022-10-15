@@ -17,6 +17,7 @@ export class CreateComponent implements OnInit {
   public proccessed: boolean;
   public filesToUpload: Array<File>
   public saveProject: any;
+  public url: string;
 
   constructor(
     private _projectService: ProjectService,
@@ -28,6 +29,7 @@ export class CreateComponent implements OnInit {
     this.proccessed = false;
     this.filesToUpload = [];
     this.saveProject = null;
+    this.url = Global.urlProject;
   }
 
   ngOnInit(): void {
